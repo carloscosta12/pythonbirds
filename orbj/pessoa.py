@@ -1,21 +1,21 @@
 class Pessoa:
-    # Mótodo __init__, passando o parâmetro 'nome' = None
-    def __init__(self, nome=None, idade=45):
-        # Cria um abtributo 'nome' como None
+    # Mótodo __init__, passando parâmetros
+    def __init__(self, *filhos, nome=None, idade=45):
+        # Criando os abtributos
         self.nome = nome
         self.idade = idade
+        self.filhos = list(filhos)
 
     # Criando um método 'cumprimentar'
     def cumprimentar(self):
         return f'Ola {id(self)}'
 if __name__ == '__main__':
-    p = Pessoa('Carlos Costa')
-    print(Pessoa.cumprimentar(p))
-    # Passando o objeto 'p' como parametro
-    print(id(p))
-    print(p.cumprimentar())
-    print(p.nome)
-    # alterando o valor do atributo
-    p.nome = 'Carlos'
-    print(p.nome)
-    print(p.idade)
+    carlos = Pessoa(nome='Carlos')
+    eduardo = Pessoa(carlos, nome='Eduardo')
+    print(Pessoa.cumprimentar(eduardo))
+    print(id(eduardo))
+    print(eduardo.cumprimentar())
+    print(eduardo.nome)
+    print(eduardo.idade)
+    for filho in eduardo.filhos:
+        print(filho.nome)
