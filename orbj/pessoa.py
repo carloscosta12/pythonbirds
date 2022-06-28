@@ -19,3 +19,9 @@ if __name__ == '__main__':
     print(eduardo.idade)
     for filho in eduardo.filhos:
         print(filho.nome)
+    eduardo.sobrenome = 'Santos'
+    # Usando o método Dunder __dict))
+    del eduardo.filhos # removendo o atribudo eduardo.filhos
+    print(eduardo.__dict__)
+    print(carlos.__dict__)
+
