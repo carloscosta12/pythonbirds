@@ -1,5 +1,6 @@
 class Pessoa:
-    # Mótodo __init__, passando parâmetros
+    olhos = 2 # Atributo default ou de Classe
+    # Método __init__, passando parâmetros
     def __init__(self, *filhos, nome=None, idade=45):
         # Criando os abtributos
         self.nome = nome
@@ -22,6 +23,12 @@ if __name__ == '__main__':
     eduardo.sobrenome = 'Santos'
     # Usando o método Dunder __dict))
     del eduardo.filhos # removendo o atribudo eduardo.filhos
+    carlos.olhos = 1
+    del carlos.olhos # Apaga o atributo do objeto
     print(eduardo.__dict__)
     print(carlos.__dict__)
-
+    Pessoa.olhos = 3
+    print(f'Olhos: {Pessoa.olhos}')
+    print(f'Olhos Carlos: {carlos.olhos}')
+    print(f'Olhos Eduardo: {eduardo.olhos}')
+    print(id(Pessoa.olhos), id(carlos.olhos), id(eduardo.olhos))
