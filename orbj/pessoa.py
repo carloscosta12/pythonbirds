@@ -10,6 +10,15 @@ class Pessoa:
     # Criando um método 'cumprimentar'
     def cumprimentar(self):
         return f'Ola {id(self)}'
+
+    # Método Estático de Classe; Decorator
+    @staticmethod
+    def metodo_estatico():
+        return 42
+    # outro método de Classe: classmethod
+    def nome_e_atributos_de_classe(cls):
+        return(f'{cls} - olhos {cls.olhos}')
+
 if __name__ == '__main__':
     carlos = Pessoa(nome='Carlos')
     eduardo = Pessoa(carlos, nome='Eduardo')
@@ -32,3 +41,8 @@ if __name__ == '__main__':
     print(f'Olhos Carlos: {carlos.olhos}')
     print(f'Olhos Eduardo: {eduardo.olhos}')
     print(id(Pessoa.olhos), id(carlos.olhos), id(eduardo.olhos))
+    print(Pessoa.metodo_estatico(), eduardo.metodo_estatico())
+    # executando pela Classe
+    print(Pessoa.nome_e_atributos_de_classe())
+    # executando diretamente através do objeto
+    print(carlos.nome_e_atributos_de_classe())
